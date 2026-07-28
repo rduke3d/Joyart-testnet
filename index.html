@@ -177,6 +177,27 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navMenu = document.getElementById('nav-menu');
+  const hamburger = document.getElementById('hamburger-btn');
+  
+  hamburger.onclick = () => navMenu.classList.toggle('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.onclick = () => navMenu.classList.remove('active'));
 
+  function abrirModal() {
+    document.getElementById('modal-joyart').style.display = 'flex';
+    navMenu.classList.remove('active');
+  }
+  function cerrarModal() {
+    document.getElementById('modal-joyart').style.display = 'none';
+  }
+  window.cerrarSiClickAfuera = (e) => { if(e.target.id === 'modal-joyart') cerrarModal(); }
+  
+  document.querySelectorAll('.btn-probar, #btn-probar-mobile').forEach(btn => btn.onclick = abrirModal);
+  document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
+  document.getElementById('cerrar-modal').onclick = cerrarModal;
+});
+</script>
 </body>
 </html>
