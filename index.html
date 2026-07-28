@@ -27,21 +27,25 @@
         <span class="logo-badge">AI</span>
       </a>
 
-      <nav class="nav-menu" id="nav-menu">
-        <a href="#soluciones" class="nav-link">SOLUCIONES</a>
-        <a href="#modelos" class="nav-link">MODELOS</a>
-        <a href="#automatizaciones" class="nav-link">AUTOMATIZACIONES</a>
-        <a href="#agencia" class="nav-link">AGENCIA</a>
-        <a href="#contacto" class="nav-link">CONTACTO</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
-        <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
-        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
+     <nav class="nav-menu" id="nav-menu">
+      <a href="#soluciones" class="nav-link">SOLUCIONES</a>
+      <a href="#modelos" class="nav-link">MODELOS</a>
+      <a href="#automatizaciones" class="nav-link">AUTOMATIZACIONES</a>
+      <a href="#agencia" class="nav-link">AGENCIA</a>
+      <a href="#contacto" class="nav-link">CONTACTO</a>
+    
+      <!-- BOTONES DENTRO DEL MENU MOVIL -->
+      <button class="btn btn-bronze mobile-btn btn-probar" id="btn-probar-mobile">Probar Joyart</button>
+      <button class="btn btn-outline mobile-btn btn-app" id="btn-app-mobile">Abrir App</button>
+    </nav>
+    
+    <div class="nav-actions">
+      <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
+      <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+</div>
     </div>
   </header>
 
@@ -215,10 +219,11 @@
   <script src="script.js"></script>
 
 <script>
-// MODAL JOYART - TODO EN 1 SOLO SCRIPT
+// MODAL JOYART
 function abrirModal() {
   document.getElementById('modal-joyart').style.display = 'flex';
   document.getElementById('mensaje-exito').style.display = 'none';
+  document.getElementById('nav-menu').classList.remove('active'); // cierra menu al abrir modal
 }
 function cerrarModal() {
   document.getElementById('modal-joyart').style.display = 'none';
@@ -229,12 +234,17 @@ function cerrarSiClickAfuera(event) {
   }
 }
 
-// Conectar botones que abren el modal
-document.querySelector('.btn-probar').onclick = abrirModal;
-document.querySelector('.btn-app').onclick = abrirModal;
+// MENU HAMBURGUESA
+document.getElementById('hamburger-btn').onclick = function() {
+  document.getElementById('nav-menu').classList.toggle('active');
+}
+
+// Conectar TODOS los botones que abren el modal
+document.querySelectorAll('.btn-probar, #btn-probar-mobile').forEach(btn => btn.onclick = abrirModal);
+document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
 document.getElementById('cerrar-modal').onclick = cerrarModal;
 
-// ENVIAR CON AJAX - NO REDIRIGE
+// ENVIAR CON AJAX
 document.getElementById('form-demo').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = document.getElementById('btn-enviar');
