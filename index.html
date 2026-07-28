@@ -219,56 +219,73 @@
   <script src="script.js"></script>
 
 <script>
-// MODAL JOYART
-function abrirModal() {
-  document.getElementById('modal-joyart').style.display = 'flex';
-  document.getElementById('mensaje-exito').style.display = 'none';
-  document.getElementById('nav-menu').classList.remove('active'); // cierra menu al abrir modal
-}
-function cerrarModal() {
-  document.getElementById('modal-joyart').style.display = 'none';
-}
-function cerrarSiClickAfuera(event) {
-  if (event.target.id === 'modal-joyart') {
-    cerrarModal();
+
+// ESPERAR A QUE CARGUE TODO EL HTML
+document.addEventListener('DOMContentLoaded', function() {
+
+  // MODAL JOYART
+  function abrirModal() {
+    document.getElementById('modal-joyart').style.display = 'flex';
+    document.getElementById('mensaje-exito').style.display = 'none';
+    document.getElementById('nav-menu').classList.remove('active'); // cierra menu al abrir modal
   }
-}
-
-// MENU HAMBURGUESA
-document.getElementById('hamburger-btn').onclick = function() {
-  document.getElementById('nav-menu').classList.toggle('active');
-}
-
-// Conectar TODOS los botones que abren el modal
-document.querySelectorAll('.btn-probar, #btn-probar-mobile').forEach(btn => btn.onclick = abrirModal);
-document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
-document.getElementById('cerrar-modal').onclick = cerrarModal;
-
-// ENVIAR CON AJAX
-document.getElementById('form-demo').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('btn-enviar');
-  btn.innerText = 'Enviando...';
-  btn.disabled = true;
-
-  fetch('https://formspree.io/f/meeynvqa', {
-    method: 'POST',
-    body: new FormData(this),
-    headers: {'Accept': 'application/json'}
-  }).then(response => {
-    if (response.ok) {
-      document.getElementById('form-demo').reset();
-      document.getElementById('mensaje-exito').style.display = 'block';
-      btn.innerText = 'Solicitar Demo Exclusiva';
-      btn.disabled = false;
-      setTimeout(cerrarModal, 2000);
-    } else {
-      alert('Error al enviar. Intenta de nuevo.');
-      btn.innerText = 'Solicitar Demo Exclusiva';
-      btn.disabled = false;
+  function cerrarModal() {
+    document.getElementById('modal-joyart').style.display = 'none';
+  }
+  function cerrarSiClickAfuera(event) {
+    if (event.target.id === 'modal-joyart') {
+      cerrarModal();
     }
+  }
+
+  // MENU HAMBURGUESA
+  const hamburger = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if(hamburger) {
+    hamburger.onclick = function() {
+      navMenu.classList.toggle('active');
+    }
+  }
+
+  // Cerrar menu al clickear un link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.onclick = () => navMenu.classList.remove('active');
   });
+
+  // Conectar TODOS los botones que abren el modal
+  document.querySelectorAll('.btn-probar, #btn-probar-mobile').forEach(btn => btn.onclick = abrirModal);
+  document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
+  document.getElementById('cerrar-modal').onclick = cerrarModal;
+
+  // ENVIAR CON AJAX
+  document.getElementById('form-demo').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-enviar');
+    btn.innerText = 'Enviando...';
+    btn.disabled = true;
+
+    fetch('https://formspree.io/f/meeynvqa', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: {'Accept': 'application/json'}
+    }).then(response => {
+      if (response.ok) {
+        document.getElementById('form-demo').reset();
+        document.getElementById('mensaje-exito').style.display = 'block';
+        btn.innerText = 'Solicitar Demo Exclusiva';
+        btn.disabled = false;
+        setTimeout(cerrarModal, 2000);
+      } else {
+        alert('Error al enviar. Intenta de nuevo.');
+        btn.innerText = 'Solicitar Demo Exclusiva';
+        btn.disabled = false;
+      }
+    });
+  });
+
 });
+</script>
 </script>
 
 </body>
