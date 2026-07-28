@@ -6,16 +6,62 @@
   <title>Joyart AI — Infraestructura de Automatización Inteligente</title>
   <meta name="description" content="Una Visión. Tres Motores. Impulsa tu Automatización IA — Únete al Testnet de Joyart. La infraestructura más rápida y elegante del mercado.">
   
-  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome for UI icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+  /* CSS RESPONSIVE ARREGLADO - PEGADO AQUI PARA QUE NO FALLE */
+  .hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger-btn {
+      display: block !important;
+    }
+    
+    .nav-actions .btn {
+      display: none !important;
+    }
+    
+    .nav-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: #0a0a0a;
+      flex-direction: column;
+      padding: 30px 20px;
+      gap: 20px;
+      border-top: 1px solid #222;
+      z-index: 9998;
+    }
+    
+    .nav-menu.active {
+      display: flex !important;
+    }
+
+    .nav-menu .mobile-btn {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 14px;
+    }
+    .nav-link {
+      padding: 12px 0;
+      border-bottom: 1px solid #222;
+    }
+  }
+  </style>
 </head>
 <body>
 
@@ -27,244 +73,90 @@
         <span class="logo-badge">AI</span>
       </a>
 
-     <nav class="nav-menu" id="nav-menu">
-      <a href="#soluciones" class="nav-link">SOLUCIONES</a>
-      <a href="#modelos" class="nav-link">MODELOS</a>
-      <a href="#automatizaciones" class="nav-link">AUTOMATIZACIONES</a>
-      <a href="#agencia" class="nav-link">AGENCIA</a>
-      <a href="#contacto" class="nav-link">CONTACTO</a>
-    
-      <!-- BOTONES DENTRO DEL MENU MOVIL -->
-      <button class="btn btn-bronze mobile-btn btn-probar" id="btn-probar-mobile">Probar Joyart</button>
-      <button class="btn btn-outline mobile-btn btn-app" id="btn-app-mobile">Abrir App</button>
-    </nav>
-    
-    <div class="nav-actions">
-      <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
-      <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-</div>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#soluciones" class="nav-link">SOLUCIONES</a>
+        <a href="#modelos" class="nav-link">MODELOS</a>
+        <a href="#automatizaciones" class="nav-link">AUTOMATIZACIONES</a>
+        <a href="#agencia" class="nav-link">AGENCIA</a>
+        <a href="#contacto" class="nav-link">CONTACTO</a>
+        <button class="btn btn-bronze mobile-btn btn-probar" id="btn-probar-mobile">Probar Joyart</button>
+        <button class="btn btn-outline mobile-btn btn-app" id="btn-app-mobile">Abrir App</button>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
+        <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- ... TODO TU CONTENIDO IGUAL ... -->
   <!-- Section 1: Hero -->
-  <section class="section section-hero" id="hero">
-    <div class="hero-bg-wrapper">
-      <img src="Seccion1.png" alt="Joyart AI Hero" class="hero-bg-img">
-    </div>
-    <div class="section-container hero-content">
-      <div class="hero-text-block">
-        <h1 class="hero-title">
-          Una Visión. Tres Motores. <br>
-          Impulsa tu Automatización IA — <br>
-          <span class="text-rose-gold">Únete al Testnet de Joyart</span>
-        </h1>
-        <p class="hero-subtitle">
-          Comienza a construir y escalar con la infraestructura de automatización con IA más rápida y elegante del mercado.
-        </p>
-        <div class="hero-actions">
-          <button class="btn btn-white" id="btn-adquirir">Adquirir Joyart AI</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Three Operational Solutions -->
-  <section class="section section-solutions" id="soluciones">
-    <div class="solutions-bg-wrapper">
-      <img src="Seccion2.png" alt="Joyart AI Soluciones" class="solutions-bg-img">
-    </div>
-    <div class="section-container solutions-content">
-      <div class="solutions-header">
-        <h2 class="solutions-title">
-          La Agencia Joyart AI Brinda <br>
-          <span class="text-bronze-light">Tres Soluciones Operativas</span>
-        </h2>
-      </div>
-
-      <div class="solutions-grid">
-        <div class="solution-card">
-          <h3 class="solution-card-title">AI</h3>
-          <p class="solution-card-text">
-            Despliega agentes que atienden soporte al cliente, calificación de leads y operación 24/7 en web, WhatsApp y CRM.
-          </p>
-        </div>
-        <div class="solution-card">
-          <h3 class="solution-card-title">Automation</h3>
-          <p class="solution-card-text">
-            Orquesta flujos que conectan tus herramientas, validan datos y disparan acciones en todo tu stack.
-          </p>
-        </div>
-        <div class="solution-card">
-          <h3 class="solution-card-title">CRM</h3>
-          <p class="solution-card-text">
-            La Cadena del Cliente centraliza cada conversación, negocio y contacto en un pipeline unificado (Joyart CRM).
-          </p>
-        </div>
-      </div>
-
-      <div class="solutions-cta">
-        <button class="btn btn-demo" id="btn-crm-demo">CRM joyart demo</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Speed & Elegance + Feature Cards -->
-  <section class="section section-features" id="modelos">
-    <div class="features-bg-wrapper">
-      <img src="Seccion3.png" alt="Joyart AI Elegancia y Velocidad" class="features-bg-img">
-    </div>
-    <div class="section-container features-content">
-      <div class="features-hero-block">
-        <h2 class="features-title">
-          Diseñado para <br>
-          <span class="text-rose-gold">Velocidad y Elegancia</span>
-        </h2>
-        <p class="features-subtitle">
-          Disfruta despliegues relámpago y automatizaciones cristalinas. La cadena Joyart ofrece beneficios premium para fundadores y operadores.
-        </p>
-        <button class="btn btn-dark-outline" id="btn-conocer-mas">Conocer más</button>
-      </div>
-
-      <div class="features-cards-row" id="automatizaciones">
-        <div class="glass-card">
-          <h4 class="glass-card-title">Despliegue Rápido</h4>
-          <p class="glass-card-text">Disfruta despliegues relámpago y automatizaciones cristalinas.</p>
-        </div>
-        <div class="glass-card">
-          <h4 class="glass-card-title">Flujos Inteligentes</h4>
-          <p class="glass-card-text">Orquesta flujos que conectan todo tu stack automáticamente.</p>
-        </div>
-        <div class="glass-card">
-          <h4 class="glass-card-title">Operación Mínima</h4>
-          <p class="glass-card-text">Agentes 24/7 que trabajan por ti sin parar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <section class="section section-hero" id="hero"> ... </section>
+  <!-- Section 2: Solutions -->
+  <section class="section section-solutions" id="soluciones"> ... </section>
+  <!-- Section 3: Features -->
+  <section class="section section-features" id="modelos"> ... </section>
   <!-- Footer -->
-  <footer class="footer" id="agencia">
-    <div class="section-container footer-container">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo">
-          <span class="logo-text">joyart</span>
-          <span class="logo-badge">AI</span>
-        </a>
-        <p class="footer-desc">
-          Redefiniendo la automatización inteligente para empresas con máxima velocidad y estética de alta costura.
-        </p>
-      </div>
+  <footer class="footer" id="agencia"> ... </footer>
 
-      <div class="footer-nav" id="contacto">
-        <div class="footer-col">
-          <h5>Navegación</h5>
-          <a href="#soluciones">Soluciones</a>
-          <a href="#modelos">Modelos</a>
-          <a href="#automatizaciones">Automatizaciones</a>
-          <a href="#agencia">Agencia</a>
-        </div>
-        <div class="footer-col">
-          <h5>Plataforma</h5>
-          <a href="#soluciones">Joyart CRM</a>
-          <a href="#soluciones">AI Agent Builder</a>
-          <a href="#soluciones">Automation Workflows</a>
-        </div>
-        <div class="footer-col">
-          <h5>Contacto</h5>
-          <a href="mailto:contacto@joyart.ai">contacto@joyart.ai</a>
-          <a href="#">Soporte 24/7</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Joyart AI. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-<!-- MODAL UNICO JOYART CON FORMSPREE AJAX -->
+<!-- MODAL UNICO JOYART -->
 <div id="modal-joyart" onclick="cerrarSiClickAfuera(event)" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center;">
   <div onclick="event.stopPropagation()" style="background:#111; padding:40px; border-radius:16px; text-align:center; max-width:420px; border:1px solid #333; position:relative;">
     <button id="cerrar-modal" style="position:absolute; top:15px; right:15px; background:none; border:none; color:#666; font-size:24px; cursor:pointer;">x</button>
-    
     <span style="background:#CD7F32; padding:4px 12px; border-radius:20px; font-size:12px; color:#fff; font-weight:600;">JOYART AI</span>
     <h3 style="color:#fff; margin:15px 0 10px 0;">Acceso al Testnet de Joyart</h3>
     <p style="color:#aaa; margin-bottom:30px;">Experimenta la velocidad y elegancia de los motores AI, Automation y CRM.</p>
-    
     <form id="form-demo">
       <label for="user-email" style="display:block; text-align:left; color:#ccc; margin-bottom:8px; font-size:14px;">Correo Corporativo</label>
-      <input 
-        type="email" 
-        id="user-email"
-        name="email" 
-        placeholder="nombre@empresa.com" 
-        required
-        style="width:100%; padding:14px; background:#222; border:1px solid #444; border-radius:8px; color:#fff; margin-bottom:20px; font-size:16px; box-sizing:border-box;"
-      >
-      <button 
-        type="submit"
-        id="btn-enviar"
-        style="background:#F97316; color:#fff; border:none; padding:14px 28px; border-radius:8px; font-size:16px; cursor:pointer; width:100%; font-weight:600;"
-      >
-        Solicitar Demo Exclusiva
-      </button>
+      <input type="email" id="user-email" name="email" placeholder="nombre@empresa.com" required style="width:100%; padding:14px; background:#222; border:1px solid #444; border-radius:8px; color:#fff; margin-bottom:20px; font-size:16px; box-sizing:border-box;">
+      <button type="submit" id="btn-enviar" style="background:#F97316; color:#fff; border:none; padding:14px 28px; border-radius:8px; font-size:16px; cursor:pointer; width:100%; font-weight:600;">Solicitar Demo Exclusiva</button>
       <p id="mensaje-exito" style="display:none; color:#4CAF50; margin-top:15px; font-size:14px;">¡Enviado! Te contactaremos pronto.</p>
     </form>
   </div>
 </div>
 
-  <!-- JavaScript File -->
-  <script src="script.js"></script>
-
 <script>
-
 // ESPERAR A QUE CARGUE TODO EL HTML
 document.addEventListener('DOMContentLoaded', function() {
-
-  // MODAL JOYART
   function abrirModal() {
     document.getElementById('modal-joyart').style.display = 'flex';
     document.getElementById('mensaje-exito').style.display = 'none';
-    document.getElementById('nav-menu').classList.remove('active'); // cierra menu al abrir modal
+    document.getElementById('nav-menu').classList.remove('active');
   }
   function cerrarModal() {
     document.getElementById('modal-joyart').style.display = 'none';
   }
-  function cerrarSiClickAfuera(event) {
+  window.cerrarSiClickAfuera = function(event) { // IMPORTANTE: ponerlo en window
     if (event.target.id === 'modal-joyart') {
       cerrarModal();
     }
   }
 
-  // MENU HAMBURGUESA
   const hamburger = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
-  
   if(hamburger) {
     hamburger.onclick = function() {
       navMenu.classList.toggle('active');
     }
   }
 
-  // Cerrar menu al clickear un link
   document.querySelectorAll('.nav-link').forEach(link => {
     link.onclick = () => navMenu.classList.remove('active');
   });
 
-  // Conectar TODOS los botones que abren el modal
   document.querySelectorAll('.btn-probar, #btn-probar-mobile').forEach(btn => btn.onclick = abrirModal);
   document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
   document.getElementById('cerrar-modal').onclick = cerrarModal;
 
-  // ENVIAR CON AJAX
   document.getElementById('form-demo').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = document.getElementById('btn-enviar');
     btn.innerText = 'Enviando...';
     btn.disabled = true;
-
     fetch('https://formspree.io/f/meeynvqa', {
       method: 'POST',
       body: new FormData(this),
@@ -283,9 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-
 });
-</script>
 </script>
 
 </body>
