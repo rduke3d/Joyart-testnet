@@ -3,180 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joyart AI — Infraestructura de Automatización Inteligente</title>
-  <meta name="description" content="Una Visión. Tres Motores. Impulsa tu Automatización IA — Únete al Testnet de Joyart. La infraestructura más rápida y elegante del mercado.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Joyart AI</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-
+  
   <style>
-  /* CSS RESPONSIVE ARREGLADO - PEGADO AQUI PARA QUE NO FALLE */
-  .hamburger-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-  }
+    /* RESET PARA QUE NO TE CAGUE EL CSS VIEJO */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0a; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; }
+    a { color: #fff; text-decoration: none; }
+    
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; width: 100%; background: #0a0a0a; border-bottom: 1px solid #222; z-index: 9999; }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+    .logo-text { font-size: 24px; font-weight: 700; }
+    .logo-badge { background: #CD7F32; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
+    
+    .nav-menu { display: flex; gap: 30px; }
+    .nav-link { font-size: 14px; }
+    .nav-actions { display: flex; gap: 10px; }
+    
+    .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
+    .btn-bronze { background: #CD7F32; color: #fff; }
+    .btn-outline { background: transparent; border: 1px solid #444; color: #fff; }
+    
+    .hamburger-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
 
-  @media (max-width: 768px) {
-    .hamburger-btn {
-      display: block !important;
-    }
-    
-    .nav-actions .btn {
-      display: none !important;
-    }
-    
-    .nav-menu {
-      display: none;
-      position: fixed;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background: #0a0a0a;
-      flex-direction: column;
-      padding: 30px 20px;
-      gap: 20px;
-      border-top: 1px solid #222;
-      z-index: 9998;
-    }
-    
-    .nav-menu.active {
-      display: flex !important;
-    }
+    /* SECCIONES DE EJEMPLO PARA QUE NO SALGA NEGRO */
+    .section { padding: 120px 20px 80px; text-align: center; min-height: 100vh; }
+    .hero-title { font-size: 40px; margin-bottom: 20px; }
+    .text-rose-gold { color: #B76E79; }
 
-    .nav-menu .mobile-btn {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
-      padding: 14px;
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hamburger-btn { display: block !important; }
+      .nav-menu { 
+        display: none; 
+        position: absolute; 
+        top: 70px; 
+        left: 0; 
+        width: 100%; 
+        background: #111; 
+        flex-direction: column; 
+        padding: 20px; 
+        gap: 20px; 
+      }
+      .nav-menu.active { display: flex !important; }
+      .nav-actions .btn { display: none !important; }
+      .nav-menu .mobile-btn { display: block; width: 100%; }
     }
-    .nav-link {
-      padding: 12px 0;
-      border-bottom: 1px solid #222;
-    }
-  }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Header -->
-  <header class="navbar" id="navbar">
+  <header class="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo" id="nav-logo">
-        <span class="logo-text">joyart</span>
-        <span class="logo-badge">AI</span>
-      </a>
-
+      <a href="#" class="nav-logo"><span class="logo-text">joyart</span><span class="logo-badge">AI</span></a>
+      
       <nav class="nav-menu" id="nav-menu">
         <a href="#soluciones" class="nav-link">SOLUCIONES</a>
         <a href="#modelos" class="nav-link">MODELOS</a>
-        <a href="#automatizaciones" class="nav-link">AUTOMATIZACIONES</a>
-        <a href="#agencia" class="nav-link">AGENCIA</a>
-        <a href="#contacto" class="nav-link">CONTACTO</a>
-        <button class="btn btn-bronze mobile-btn btn-probar" id="btn-probar-mobile">Probar Joyart</button>
-        <button class="btn btn-outline mobile-btn btn-app" id="btn-app-mobile">Abrir App</button>
+        <button class="btn btn-bronze mobile-btn btn-probar">Probar Joyart</button>
+        <button class="btn btn-outline mobile-btn btn-app">Abrir App</button>
       </nav>
       
       <div class="nav-actions">
-        <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
-        <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
-        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="btn btn-bronze btn-probar">Probar Joyart</button>
+        <button class="btn btn-outline btn-app">Abrir App</button>
+        <button class="hamburger-btn" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
   </header>
 
-  <!-- ... TODO TU CONTENIDO IGUAL ... -->
-  <!-- Section 1: Hero -->
-  <section class="section section-hero" id="hero"> ... </section>
-  <!-- Section 2: Solutions -->
-  <section class="section section-solutions" id="soluciones"> ... </section>
-  <!-- Section 3: Features -->
-  <section class="section section-features" id="modelos"> ... </section>
-  <!-- Footer -->
-  <footer class="footer" id="agencia"> ... </footer>
+  <section class="section" id="hero">
+    <h1 class="hero-title">Una Visión. Tres Motores. <br><span class="text-rose-gold">Únete al Testnet de Joyart</span></h1>
+    <button class="btn btn-bronze btn-probar">Adquirir Joyart AI</button>
+  </section>
 
-<!-- MODAL UNICO JOYART -->
-<div id="modal-joyart" onclick="cerrarSiClickAfuera(event)" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center;">
-  <div onclick="event.stopPropagation()" style="background:#111; padding:40px; border-radius:16px; text-align:center; max-width:420px; border:1px solid #333; position:relative;">
-    <button id="cerrar-modal" style="position:absolute; top:15px; right:15px; background:none; border:none; color:#666; font-size:24px; cursor:pointer;">x</button>
-    <span style="background:#CD7F32; padding:4px 12px; border-radius:20px; font-size:12px; color:#fff; font-weight:600;">JOYART AI</span>
-    <h3 style="color:#fff; margin:15px 0 10px 0;">Acceso al Testnet de Joyart</h3>
-    <p style="color:#aaa; margin-bottom:30px;">Experimenta la velocidad y elegancia de los motores AI, Automation y CRM.</p>
+  <section class="section" id="soluciones"><h2>SOLUCIONES</h2></section>
+
+<!-- MODAL -->
+<div id="modal-joyart" onclick="cerrarSiClickAfuera(event)" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; justify-content:center; align-items:center;">
+  <div onclick="event.stopPropagation()" style="background:#111; padding:40px; border-radius:16px; max-width:420px;">
+    <button id="cerrar-modal" style="float:right; background:none; border:none; color:#666; font-size:24px; cursor:pointer;">x</button>
+    <h3>Acceso al Testnet</h3>
     <form id="form-demo">
-      <label for="user-email" style="display:block; text-align:left; color:#ccc; margin-bottom:8px; font-size:14px;">Correo Corporativo</label>
-      <input type="email" id="user-email" name="email" placeholder="nombre@empresa.com" required style="width:100%; padding:14px; background:#222; border:1px solid #444; border-radius:8px; color:#fff; margin-bottom:20px; font-size:16px; box-sizing:border-box;">
-      <button type="submit" id="btn-enviar" style="background:#F97316; color:#fff; border:none; padding:14px 28px; border-radius:8px; font-size:16px; cursor:pointer; width:100%; font-weight:600;">Solicitar Demo Exclusiva</button>
-      <p id="mensaje-exito" style="display:none; color:#4CAF50; margin-top:15px; font-size:14px;">¡Enviado! Te contactaremos pronto.</p>
+      <input type="email" name="email" placeholder="tu@correo.com" required style="width:100%; padding:14px; margin:20px 0; background:#222; border:1px solid #444; color:#fff;">
+      <button type="submit" id="btn-enviar" class="btn btn-bronze" style="width:100%;">Solicitar Demo</button>
     </form>
   </div>
 </div>
 
 <script>
-// ESPERAR A QUE CARGUE TODO EL HTML
+// JS SIMPLE SIN DEPENDENCIAS
 document.addEventListener('DOMContentLoaded', function() {
+  const navMenu = document.getElementById('nav-menu');
+  
+  // HAMBURGUESA
+  document.getElementById('hamburger-btn').onclick = () => navMenu.classList.toggle('active');
+  
+  // MODAL
   function abrirModal() {
     document.getElementById('modal-joyart').style.display = 'flex';
-    document.getElementById('mensaje-exito').style.display = 'none';
-    document.getElementById('nav-menu').classList.remove('active');
+    navMenu.classList.remove('active');
   }
   function cerrarModal() {
     document.getElementById('modal-joyart').style.display = 'none';
   }
-  window.cerrarSiClickAfuera = function(event) { // IMPORTANTE: ponerlo en window
-    if (event.target.id === 'modal-joyart') {
-      cerrarModal();
-    }
-  }
-
-  const hamburger = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  if(hamburger) {
-    hamburger.onclick = function() {
-      navMenu.classList.toggle('active');
-    }
-  }
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.onclick = () => navMenu.classList.remove('active');
-  });
-
-  document.querySelectorAll('.btn-probar, #btn-probar-mobile').forEach(btn => btn.onclick = abrirModal);
-  document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
+  window.cerrarSiClickAfuera = (e) => { if(e.target.id === 'modal-joyart') cerrarModal(); }
+  
+  document.querySelectorAll('.btn-probar, .btn-app').forEach(btn => btn.onclick = abrirModal);
   document.getElementById('cerrar-modal').onclick = cerrarModal;
-
-  document.getElementById('form-demo').addEventListener('submit', function(e) {
+  
+  // FORM
+  document.getElementById('form-demo').onsubmit = (e) => {
     e.preventDefault();
-    const btn = document.getElementById('btn-enviar');
-    btn.innerText = 'Enviando...';
-    btn.disabled = true;
-    fetch('https://formspree.io/f/meeynvqa', {
-      method: 'POST',
-      body: new FormData(this),
-      headers: {'Accept': 'application/json'}
-    }).then(response => {
-      if (response.ok) {
-        document.getElementById('form-demo').reset();
-        document.getElementById('mensaje-exito').style.display = 'block';
-        btn.innerText = 'Solicitar Demo Exclusiva';
-        btn.disabled = false;
-        setTimeout(cerrarModal, 2000);
-      } else {
-        alert('Error al enviar. Intenta de nuevo.');
-        btn.innerText = 'Solicitar Demo Exclusiva';
-        btn.disabled = false;
-      }
-    });
-  });
+    alert('Demo enviada!'); // temporal para probar
+    cerrarModal();
+  }
 });
 </script>
-
 </body>
 </html>
