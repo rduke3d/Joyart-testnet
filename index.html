@@ -238,5 +238,33 @@
     </form>
   </div>
 </div>
+  <!-- MODAL LOGIN MICROSOFT -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#111; padding:40px; border-radius:16px; text-align:center; max-width:400px; border:1px solid #333;">
+    <h2 style="color:#fff; margin-bottom:10px;">Únete al Testnet de Joyart</h2>
+    <p style="color:#aaa; margin-bottom:30px;">Inicia sesión con tu cuenta corporativa</p>
+    <button onclick="loginMicrosoft()" style="background:#F97316; color:#fff; border:none; padding:14px 28px; border-radius:8px; font-size:16px; cursor:pointer; width:100%;">
+      Conectar con Microsoft
+    </button>
+    <p onclick="cerrarModal()" style="color:#666; margin-top:20px; cursor:pointer; font-size:14px;">Cerrar</p>
+  </div>
+</div>
+
+<script>
+function abrirModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+function cerrarModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+function loginMicrosoft() {
+  alert('Conectando con Microsoft... Próximamente en Testnet');
+  cerrarModal();
+}
+
+// Conectar botones
+document.querySelector('.btn-primary').onclick = abrirModal; // "Probar Joyart"
+document.querySelector('.btn-secondary').onclick = abrirModal; // "Abrir App"
+</script>
 </body>
 </html>
