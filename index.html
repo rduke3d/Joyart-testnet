@@ -3,36 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joyart AI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Joyart AI — Infraestructura de Automatización Inteligente</title>
+  <meta name="description" content="Una Visión. Tres Motores. Impulsa tu Automatización IA — Únete al Testnet de Joyart.">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0a0a0a; color: #fff; }
+    a { text-decoration: none; color: inherit; }
     
     /* NAVBAR */
-    .navbar { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #222; z-index: 10000; }
-    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px; }
-    .logo-text { font-size: 24px; font-weight: 700; } .logo-badge { background: #CD7F32; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
-    .nav-menu { display: flex; gap: 30px; align-items: center; }
-    .nav-link { color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; }
-    .nav-actions { display: flex; gap: 10px; }
-    .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; font-size: 14px; }
-    .btn-bronze { background: #CD7F32; color: #fff; } .btn-outline { background: transparent; border: 1px solid #444; color: #fff; } .btn-white { background: #fff; color: #000; }
+    .navbar { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid #222; z-index: 10000; }
+    .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
+    .logo-text { font-size: 26px; font-weight: 700; font-family: 'Playfair Display', serif; } 
+    .logo-badge { background: #CD7F32; padding: 3px 10px; border-radius: 20px; font-size: 12px; margin-left: 6px; font-weight: 600; }
+    .nav-menu { display: flex; gap: 35px; align-items: center; }
+    .nav-link { color: #ccc; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+    .nav-link:hover { color: #fff; }
+    .nav-actions { display: flex; gap: 12px; }
+    .btn { padding: 12px 22px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s; }
+    .btn-bronze { background: #CD7F32; color: #fff; } .btn-bronze:hover { background: #b56e2a; }
+    .btn-outline { background: transparent; border: 1px solid #444; color: #fff; } .btn-outline:hover { background: #222; }
+    .btn-white { background: #fff; color: #000; } .btn-white:hover { background: #eee; }
+    .btn-demo { background: linear-gradient(90deg, #CD7F32, #B76E79); color: #fff; padding: 14px 30px; }
+    .btn-dark-outline { background: transparent; border: 1px solid #555; color: #fff; padding: 14px 30px; }
     .hamburger-btn { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
 
     /* SECCIONES */
-    .section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 20px; }
-    .hero-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-    .hero-bg-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
-    .hero-title { font-size: 48px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
-    .text-rose-gold { color: #B76E79; }
-    .hero-subtitle { font-size: 18px; color: #aaa; max-width: 600px; margin: 0 auto 30px; }
+    .section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 40px; }
+    .section-container { max-width: 1200px; width: 100%; z-index: 2; }
+    .hero-bg-wrapper, .solutions-bg-wrapper, .features-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    .hero-bg-img, .solutions-bg-img, .features-bg-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+    
+    .hero-text-block { text-align: center; }
+    .hero-title { font-size: 56px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    .text-rose-gold { color: #B76E79; } .text-bronze-light { color: #CD7F32; }
+    .hero-subtitle { font-size: 20px; color: #aaa; max-width: 700px; margin: 0 auto 40px; }
+
+    .solutions-header, .features-hero-block { text-align: center; margin-bottom: 60px; }
+    .solutions-title, .features-title { font-size: 44px; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
+    .solution-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 16px; backdrop-filter: blur(10px); }
+    .solution-card-title { font-size: 24px; margin-bottom: 15px; font-weight: 600; }
+    .solution-card-text { color: #aaa; line-height: 1.6; }
+    .solutions-cta { text-align: center; }
+
+    .features-cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+    .glass-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 16px; backdrop-filter: blur(10px); }
+    .glass-card-title { font-size: 20px; margin-bottom: 10px; font-weight: 600; }
+    .glass-card-text { color: #aaa; }
+
+    /* FOOTER */
+    .footer { background: #050505; padding: 80px 40px 30px; border-top: 1px solid #222; }
+    .footer-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; }
+    .footer-desc { color: #888; margin-top: 15px; max-width: 300px; }
+    .footer-nav { display: flex; gap: 60px; flex-wrap: wrap; }
+    .footer-col h5 { margin-bottom: 20px; font-size: 16px; }
+    .footer-col a { display: block; color: #888; margin-bottom: 12px; font-size: 14px; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid #222; color: #666; }
 
     /* RESPONSIVE */
     @media (max-width: 990px) {
       .hamburger-btn { display: block !important; }
+      .nav-container { padding: 20px; }
       .nav-menu { 
         display: none; 
         position: fixed !important; 
@@ -42,58 +81,171 @@
         padding: 30px 20px; 
         gap: 20px; 
         border-top: 1px solid #222;
+        align-items: flex-start;
       }
       .nav-menu.active { display: flex !important; }
       .nav-actions .btn { display: none !important; }
-      .nav-menu .mobile-btn { display: block !important; width: 100%; padding: 16px; }
-      .hero-title { font-size: 32px; }
+      .nav-menu .mobile-btn { display: block !important; width: 100%; padding: 16px; margin-top: 10px; }
+      
+      .hero-title { font-size: 36px; }
+      .solutions-grid, .features-cards-row { grid-template-columns: 1fr; }
+      .footer-container { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <header class="navbar">
+  <!-- Navigation Header -->
+  <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo" style="text-decoration:none; color:#fff;"><span class="logo-text">joyart</span><span class="logo-badge">AI</span></a>
+      <a href="#" class="nav-logo"><span class="logo-text">joyart</span><span class="logo-badge">AI</span></a>
+
       <nav class="nav-menu" id="nav-menu">
         <a href="#soluciones" class="nav-link">SOLUCIONES</a>
         <a href="#modelos" class="nav-link">MODELOS</a>
-        <button class="btn btn-bronze mobile-btn btn-probar">Probar Joyart</button>
-        <button class="btn btn-outline mobile-btn btn-app">Abrir App</button>
+        <a href="#automatizaciones" class="nav-link">AUTOMATIZACIONES</a>
+        <a href="#agencia" class="nav-link">AGENCIA</a>
+        <a href="#contacto" class="nav-link">CONTACTO</a>
+        <button class="btn btn-bronze mobile-btn btn-probar" id="btn-probar-mobile">Probar Joyart</button>
+        <button class="btn btn-outline mobile-btn btn-app" id="btn-app-mobile">Abrir App</button>
       </nav>
+      
       <div class="nav-actions">
-        <button class="btn btn-bronze btn-probar">Probar Joyart</button>
-        <button class="btn btn-outline btn-app">Abrir App</button>
+        <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
+        <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
         <button class="hamburger-btn" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
   </header>
 
-  <section class="section" id="hero">
+  <!-- Section 1: Hero -->
+  <section class="section section-hero" id="hero">
     <div class="hero-bg-wrapper">
-      <img src="Seccion1.png" alt="Hero" class="hero-bg-img" onerror="this.style.display='none'">
+      <img src="Seccion1.png" alt="Joyart AI Hero" class="hero-bg-img" onerror="this.style.display='none'">
     </div>
-    <div>
-      <h1 class="hero-title">Una Visión. Tres Motores. <br><span class="text-rose-gold">Únete al Testnet de Joyart</span></h1>
-      <p class="hero-subtitle">La infraestructura de automatización con IA más rápida y elegante del mercado.</p>
-      <button class="btn btn-white btn-probar">Adquirir Joyart AI</button>
+    <div class="section-container hero-content">
+      <div class="hero-text-block">
+        <h1 class="hero-title">
+          Una Visión. Tres Motores. <br>
+          Impulsa tu Automatización IA — <br>
+          <span class="text-rose-gold">Únete al Testnet de Joyart</span>
+        </h1>
+        <p class="hero-subtitle">
+          Comienza a construir y escalar con la infraestructura de automatización con IA más rápida y elegante del mercado.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-white btn-probar" id="btn-adquirir">Adquirir Joyart AI</button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="soluciones" style="background:#111;">
-    <div>
-      <h2 style="font-size:40px;">Tres Soluciones Operativas</h2>
-      <p style="color:#aaa; margin-top:20px;">AI - Automation - CRM</p>
+  <!-- Section 2: Solutions -->
+  <section class="section section-solutions" id="soluciones">
+    <div class="solutions-bg-wrapper">
+      <img src="Seccion2.png" alt="Joyart AI Soluciones" class="solutions-bg-img" onerror="this.style.display='none'">
+    </div>
+    <div class="section-container solutions-content">
+      <div class="solutions-header">
+        <h2 class="solutions-title">
+          La Agencia Joyart AI Brinda <br>
+          <span class="text-bronze-light">Tres Soluciones Operativas</span>
+        </h2>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <h3 class="solution-card-title">AI</h3>
+          <p class="solution-card-text">Despliega agentes que atienden soporte al cliente, calificación de leads y operación 24/7 en web, WhatsApp y CRM.</p>
+        </div>
+        <div class="solution-card">
+          <h3 class="solution-card-title">Automation</h3>
+          <p class="solution-card-text">Orquesta flujos que conectan tus herramientas, validan datos y disparan acciones en todo tu stack.</p>
+        </div>
+        <div class="solution-card">
+          <h3 class="solution-card-title">CRM</h3>
+          <p class="solution-card-text">La Cadena del Cliente centraliza cada conversación, negocio y contacto en un pipeline unificado.</p>
+        </div>
+      </div>
+
+      <div class="solutions-cta">
+        <button class="btn btn-demo btn-probar" id="btn-crm-demo">CRM joyart demo</button>
+      </div>
     </div>
   </section>
 
-<!-- MODAL -->
+  <!-- Section 3: Features -->
+  <section class="section section-features" id="modelos">
+    <div class="features-bg-wrapper">
+      <img src="Seccion3.png" alt="Joyart AI Elegancia y Velocidad" class="features-bg-img" onerror="this.style.display='none'">
+    </div>
+    <div class="section-container features-content">
+      <div class="features-hero-block">
+        <h2 class="features-title">
+          Diseñado para <br>
+          <span class="text-rose-gold">Velocidad y Elegancia</span>
+        </h2>
+        <p class="features-subtitle" style="color:#aaa; max-width:600px; margin:20px auto;">
+          Disfruta despliegues relámpago y automatizaciones cristalinas.
+        </p>
+        <button class="btn btn-dark-outline btn-probar" id="btn-conocer-mas">Conocer más</button>
+      </div>
+
+      <div class="features-cards-row" id="automatizaciones">
+        <div class="glass-card">
+          <h4 class="glass-card-title">Despliegue Rápido</h4>
+          <p class="glass-card-text">Disfruta despliegues relámpago y automatizaciones cristalinas.</p>
+        </div>
+        <div class="glass-card">
+          <h4 class="glass-card-title">Flujos Inteligentes</h4>
+          <p class="glass-card-text">Orquesta flujos que conectan todo tu stack automáticamente.</p>
+        </div>
+        <div class="glass-card">
+          <h4 class="glass-card-title">Operación Mínima</h4>
+          <p class="glass-card-text">Agentes 24/7 que trabajan por ti sin parar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="agencia">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><span class="logo-text">joyart</span><span class="logo-badge">AI</span></a>
+        <p class="footer-desc">Redefiniendo la automatización inteligente para empresas con máxima velocidad y estética de alta costura.</p>
+      </div>
+
+      <div class="footer-nav" id="contacto">
+        <div class="footer-col">
+          <h5>Navegación</h5>
+          <a href="#soluciones">Soluciones</a>
+          <a href="#modelos">Modelos</a>
+          <a href="#automatizaciones">Automatizaciones</a>
+          <a href="#agencia">Agencia</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <a href="mailto:contacto@joyart.ai">contacto@joyart.ai</a>
+          <a href="#">Soporte 24/7</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Joyart AI. Todos los derechos reservados.</p></div>
+  </footer>
+
+<!-- MODAL UNICO JOYART -->
 <div id="modal-joyart" onclick="cerrarSiClickAfuera(event)" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:99999; justify-content:center; align-items:center;">
-  <div onclick="event.stopPropagation()" style="background:#111; padding:40px; border-radius:16px; max-width:420px;">
-    <button id="cerrar-modal" style="float:right; background:none; border:none; color:#666; font-size:24px; cursor:pointer;">x</button>
-    <h3>Acceso al Testnet</h3>
-    <input type="email" id="user-email" placeholder="tu@correo.com" style="width:100%; padding:14px; margin:20px 0; background:#222; border:1px solid #444; color:#fff;">
-    <button id="btn-enviar" class="btn btn-bronze" style="width:100%;">Solicitar Demo</button>
+  <div onclick="event.stopPropagation()" style="background:#111; padding:40px; border-radius:16px; text-align:center; max-width:420px; border:1px solid #333; position:relative;">
+    <button id="cerrar-modal" style="position:absolute; top:15px; right:15px; background:none; border:none; color:#666; font-size:24px; cursor:pointer;">x</button>
+    <span style="background:#CD7F32; padding:4px 12px; border-radius:20px; font-size:12px; color:#fff; font-weight:600;">JOYART AI</span>
+    <h3 style="color:#fff; margin:15px 0 10px 0;">Acceso al Testnet de Joyart</h3>
+    <p style="color:#aaa; margin-bottom:30px;">Experimenta la velocidad y elegancia de los motores AI, Automation y CRM.</p>
+    <form id="form-demo">
+      <input type="email" name="email" placeholder="nombre@empresa.com" required style="width:100%; padding:14px; background:#222; border:1px solid #444; border-radius:8px; color:#fff; margin-bottom:20px;">
+      <button type="submit" id="btn-enviar" style="background:#F97316; color:#fff; border:none; padding:14px 28px; border-radius:8px; width:100%; font-weight:600;">Solicitar Demo Exclusiva</button>
+      <p id="mensaje-exito" style="display:none; color:#4CAF50; margin-top:15px;">¡Enviado! Te contactaremos pronto.</p>
+    </form>
   </div>
 </div>
 
@@ -101,30 +253,36 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navMenu = document.getElementById('nav-menu');
   
-  // HAMBURGUESA
-  document.getElementById('hamburger-btn').addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    console.log('click hamburguesa'); // para debug
-  });
-  
-  // MODAL
+  document.getElementById('hamburger-btn').onclick = () => navMenu.classList.toggle('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.onclick = () => navMenu.classList.remove('active'));
+
   function abrirModal() {
     document.getElementById('modal-joyart').style.display = 'flex';
+    document.getElementById('mensaje-exito').style.display = 'none';
     navMenu.classList.remove('active');
   }
-  function cerrarModal() {
-    document.getElementById('modal-joyart').style.display = 'none';
-  }
+  function cerrarModal() { document.getElementById('modal-joyart').style.display = 'none'; }
   window.cerrarSiClickAfuera = (e) => { if(e.target.id === 'modal-joyart') cerrarModal(); }
   
-  document.querySelectorAll('.btn-probar, .btn-app').forEach(btn => btn.onclick = abrirModal);
+  // TODOS LOS BOTONES ABREN MODAL
+  document.querySelectorAll('.btn-probar, #btn-probar-mobile, #btn-adquirir, #btn-crm-demo, #btn-conocer-mas').forEach(btn => btn.onclick = abrirModal);
+  document.querySelectorAll('.btn-app, #btn-app-mobile').forEach(btn => btn.onclick = abrirModal);
   document.getElementById('cerrar-modal').onclick = cerrarModal;
-  
-  // FORM
-  document.getElementById('btn-enviar').onclick = () => {
-    alert('Demo enviada a: ' + document.getElementById('user-email').value);
-    cerrarModal();
-  }
+
+  document.getElementById('form-demo').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-enviar');
+    btn.innerText = 'Enviando...'; btn.disabled = true;
+    fetch('https://formspree.io/f/meeynvqa', { method: 'POST', body: new FormData(this), headers: {'Accept': 'application/json'} })
+    .then(r => {
+      if (r.ok) {
+        document.getElementById('form-demo').reset();
+        document.getElementById('mensaje-exito').style.display = 'block';
+        btn.innerText = 'Solicitar Demo Exclusiva'; btn.disabled = false;
+        setTimeout(cerrarModal, 2000);
+      } else { alert('Error al enviar'); btn.innerText = 'Solicitar Demo Exclusiva'; btn.disabled = false; }
+    });
+  });
 });
 </script>
 </body>
