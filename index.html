@@ -4,65 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joyart AI — Infraestructura de Automatización Inteligente</title>
-  <meta name="description" content="Una Visión. Tres Motores. Impulsa tu Automatización IA — Únete al Testnet de Joyart.">
+  <meta name="description" content="Una Visión. Tres Motores. Impulsa tu Automatización IA — Únete al Testnet de Joyart. La infraestructura más rápida y elegante del mercado.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     
-    /* NAVBAR MAS CHICO */
+    /* NAVBAR FUNCIONANDO EN CELU */
     .navbar { position: fixed; top: 0; width: 100%; background: transparent; z-index: 10000; transition: background 0.3s; }
     .navbar.scrolled { background: rgba(20,20,20,0.85); backdrop-filter: blur(12px); }
-    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 60px; }
-    .logo-text { font-size: 22px; font-weight: 600; font-family: 'Playfair Display', serif; } 
-    .logo-badge { background: #F97316; padding: 3px 8px; border-radius: 4px; font-size: 10px; margin-left: 6px; font-weight: 700; color: #fff; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px 60px; }
+    .logo-text { font-size: 24px; font-weight: 600; font-family: 'Playfair Display', serif; } 
+    .logo-badge { background: #F97316; padding: 3px 9px; border-radius: 5px; font-size: 11px; margin-left: 6px; font-weight: 700; color: #fff; }
     .nav-menu { display: flex; gap: 35px; align-items: center; }
-    .nav-link { color: #fff; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
-    .btn { padding: 10px 20px; border-radius: 50px; border: none; cursor: pointer; font-weight: 600; font-size: 13px; }
-    .btn-bronze { background: #F97316; color: #fff; } 
-    .btn-outline { background: transparent; border: 1px solid #555; color: #fff; } 
-    .btn-white { background: #fff; color: #000; padding: 12px 28px; font-size: 14px; }
+    .nav-link { color: #fff; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: opacity 0.3s; }
+    .nav-link:hover { opacity: 0.7; }
+    .nav-actions { display: flex; gap: 12px; }
+    .btn { padding: 11px 22px; border-radius: 50px; border: none; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s; }
+    .btn-bronze { background: #F97316; color: #fff; } .btn-bronze:hover { background: #ea580c; }
+    .btn-outline { background: transparent; border: 1px solid #555; color: #fff; } .btn-outline:hover { background: #222; }
+    .btn-white { background: #fff; color: #000; padding: 14px 32px; font-size: 14px; } .btn-white:hover { transform: translateY(-2px); }
+    .btn-demo { background: #A67C52; color: #fff; padding: 14px 32px; } .btn-demo:hover { background: #8f6a44; }
+    .btn-dark-outline { background: transparent; border: 1px solid #555; color: #fff; padding: 14px 32px; border-radius: 50px; }
     .hamburger-btn { display: none; background: none; border: none; color: white; font-size: 22px; cursor: pointer; }
 
-    /* HERO MAS FINO COMO TU FOTO */
+    /* SECCIONES IGUALES A TU ORIGINAL */
     .section { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 60px; }
-    .hero-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-    .hero-bg-img { width: 100%; height: 100%; object-fit: cover; }
+    .section-container { max-width: 1400px; width: 100%; margin: 0 auto; z-index: 2; }
+    .hero-bg-wrapper, .solutions-bg-wrapper, .features-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+    .hero-bg-img, .solutions-bg-img, .features-bg-img { width: 100%; height: 100%; object-fit: cover; }
     
-    .hero-text-block { max-width: 550px; padding-top: 100px; }
-    .hero-title { font-size: 42px; font-weight: 500; line-height: 1.2; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-    .text-orange { color: #F97316; } 
-    .hero-subtitle { font-size: 15px; color: #bbb; margin: 20px 0 30px; line-height: 1.6; max-width: 450px; font-weight: 300; }
+    .hero-text-block { max-width: 600px; padding-top: 80px; }
+    .hero-title { font-size: 46px; font-weight: 500; line-height: 1.2; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    .text-rose-gold { color: #F97316; } 
+    .hero-subtitle { font-size: 15px; color: #bbb; margin: 20px 0 30px; line-height: 1.6; max-width: 500px; font-weight: 300; }
 
-    /* SECCIONES MAS CHICAS */
-    .solutions-title, .features-title { font-size: 36px; font-weight: 500; font-family: 'Playfair Display', serif; text-align: center; }
-    .text-brown { color: #C4A484; } 
-    .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 50px 0; }
-    .solution-card h3 { font-size: 18px; margin-bottom: 15px; font-weight: 600; }
-    .solution-card p { color: #aaa; font-size: 14px; line-height: 1.6; }
+    .solutions-content, .features-content { width: 100%; padding: 120px 0; }
+    .solutions-header, .features-hero-block { text-align: center; margin-bottom: 60px; }
+    .solutions-title, .features-title { font-size: 38px; font-weight: 500; font-family: 'Playfair Display', serif; }
+    .text-bronze-light { color: #C4A484; } 
+    .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 50px; }
+    .solution-card-title { font-size: 20px; margin-bottom: 15px; font-weight: 600; }
+    .solution-card-text { color: #aaa; font-size: 14px; line-height: 1.6; }
+    .solutions-cta { text-align: center; }
 
-    /* RESPONSIVE */
+    .features-hero-block p { color: #aaa; max-width: 550px; margin: 20px auto 40px; line-height: 1.7; font-size: 15px; }
+    .features-cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+    .glass-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 30px; border-radius: 16px; }
+    .glass-card-title { font-size: 18px; margin-bottom: 12px; font-weight: 600; }
+    .glass-card-text { color: #aaa; font-size: 14px; }
+
+    /* FOOTER */
+    .footer { background: #000; padding: 80px 60px 30px; border-top: 1px solid #111; }
+    .footer-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; }
+    .footer-desc { color: #888; margin-top: 15px; max-width: 300px; font-size: 14px; }
+    .footer-nav { display: flex; gap: 60px; flex-wrap: wrap; }
+    .footer-col h5 { margin-bottom: 20px; font-size: 15px; font-weight: 600; }
+    .footer-col a { display: block; color: #888; margin-bottom: 12px; font-size: 14px; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid #111; color: #666; font-size: 14px; }
+
+    /* RESPONSIVE CON MENU HAMBURGUESA */
     @media (max-width: 990px) {
       .hamburger-btn { display: block !important; }
       .nav-container { padding: 15px 20px; }
       .nav-menu { 
-        display: none; position: fixed; top: 65px; left: 0; width: 100%; 
+        display: none; position: fixed; top: 68px; left: 0; width: 100%; 
         background: rgba(20,20,20,0.98) !important; flex-direction: column; 
         padding: 25px 20px; gap: 20px; border-top: 1px solid #333;
+        align-items: flex-start; backdrop-filter: blur(20px);
       }
       .nav-menu.active { display: flex !important; }
       .nav-actions .btn { display: none !important; }
-      .nav-menu .mobile-btn { display: block !important; width: 100%; padding: 14px; }
-      .hero-title { font-size: 32px; }
-      .solutions-grid { grid-template-columns: 1fr; }
+      .nav-menu .mobile-btn { display: block !important; width: 100%; padding: 14px; margin-top: 10px; }
+      .nav-link { font-size: 15px; padding: 10px 0; width: 100%; border-bottom: 1px solid #222; }
+      .hero-title { font-size: 34px; }
+      .solutions-grid, .features-cards-row { grid-template-columns: 1fr; }
       .section { padding: 100px 20px; }
+      .footer-container { flex-direction: column; }
     }
   </style>
 </head>
@@ -71,7 +97,10 @@
   <!-- Navigation Header -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo"><span class="logo-text">joyart</span><span class="logo-badge">AI</span></a>
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-text">joyart</span>
+        <span class="logo-badge">AI</span>
+      </a>
 
       <nav class="nav-menu" id="nav-menu">
         <a href="#soluciones" class="nav-link">SOLUCIONES</a>
@@ -82,11 +111,13 @@
         <button class="btn btn-bronze mobile-btn btn-probar">Probar Joyart</button>
         <button class="btn btn-outline mobile-btn btn-app">Abrir App</button>
       </nav>
-      
+
       <div class="nav-actions">
-        <button class="btn btn-bronze btn-probar">Probar Joyart</button>
-        <button class="btn btn-outline btn-app">Abrir App</button>
-        <button class="hamburger-btn" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
+        <button class="btn btn-bronze btn-probar" id="btn-probar">Probar Joyart</button>
+        <button class="btn btn-outline btn-app" id="btn-app">Abrir App</button>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -99,21 +130,21 @@
     <div class="section-container hero-content">
       <div class="hero-text-block">
         <h1 class="hero-title">
-          Una Visión. Tres Motores.<br>
-          Impulsa tu Automatización <span class="text-orange">IA</span><br>
-          <span class="text-orange">Únete al Testnet de Joyart</span>
+          Una Visión. Tres Motores. <br>
+          Impulsa tu Automatización IA — <br>
+          <span class="text-rose-gold">Únete al Testnet de Joyart</span>
         </h1>
         <p class="hero-subtitle">
           Comienza a construir y escalar con la infraestructura de automatización con IA más rápida y elegante del mercado.
         </p>
         <div class="hero-actions">
-          <button class="btn btn-white btn-probar">Adquirir Joyart AI</button>
+          <button class="btn btn-white btn-probar" id="btn-adquirir">Adquirir Joyart AI</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 2: Solutions -->
+  <!-- Section 2: Three Operational Solutions -->
   <section class="section section-solutions" id="soluciones">
     <div class="solutions-bg-wrapper">
       <img src="Seccion2.png" alt="Joyart AI Soluciones" class="solutions-bg-img" onerror="this.style.display='none'">
@@ -122,32 +153,38 @@
       <div class="solutions-header">
         <h2 class="solutions-title">
           La Agencia Joyart AI Brinda <br>
-          <span class="text-brown">Tres Soluciones Operativas</span>
+          <span class="text-bronze-light">Tres Soluciones Operativas</span>
         </h2>
       </div>
 
       <div class="solutions-grid">
         <div class="solution-card">
-          <h3>AI</h3>
-          <p>Despliega agentes que atienden soporte al cliente, calificación de leads y operación 24/7 en web, WhatsApp y CRM.</p>
+          <h3 class="solution-card-title">AI</h3>
+          <p class="solution-card-text">
+            Despliega agentes que atienden soporte al cliente, calificación de leads y operación 24/7 en web, WhatsApp y CRM.
+          </p>
         </div>
         <div class="solution-card">
-          <h3>Automation</h3>
-          <p>Orquesta flujos que conectan tus herramientas, validan datos y disparan acciones en todo tu stack.</p>
+          <h3 class="solution-card-title">Automation</h3>
+          <p class="solution-card-text">
+            Orquesta flujos que conectan tus herramientas, validan datos y disparan acciones en todo tu stack.
+          </p>
         </div>
         <div class="solution-card">
-          <h3>CRM</h3>
-          <p>La Cadena del Cliente centraliza cada conversación, negocio y contacto en un pipeline unificado (Joyart CRM).</p>
+          <h3 class="solution-card-title">CRM</h3>
+          <p class="solution-card-text">
+            La Cadena del Cliente centraliza cada conversación, negocio y contacto en un pipeline unificado (Joyart CRM).
+          </p>
         </div>
       </div>
 
       <div class="solutions-cta">
-        <button class="btn btn-demo btn-probar">CRM joyart demo</button>
+        <button class="btn btn-demo btn-probar" id="btn-crm-demo">CRM joyart demo</button>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Features -->
+  <!-- Section 3: Speed & Elegance + Feature Cards -->
   <section class="section section-features" id="modelos">
     <div class="features-bg-wrapper">
       <img src="Seccion3.png" alt="Joyart AI Elegancia y Velocidad" class="features-bg-img" onerror="this.style.display='none'">
@@ -156,27 +193,32 @@
       <div class="features-hero-block">
         <h2 class="features-title">
           Diseñado para <br>
-          <span class="text-orange">Velocidad y Elegancia</span>
+          <span class="text-rose-gold">Velocidad y Elegancia</span>
         </h2>
-        <p>
-          Disfruta despliegues relámpago y automatizaciones cristalinas. 
-          La cadena Joyart ofrece beneficios premium para fundadores y operadores.
+        <p class="features-subtitle">
+          Disfruta despliegues relámpago y automatizaciones cristalinas. La cadena Joyart ofrece beneficios premium para fundadores y operadores.
         </p>
-        <button class="btn btn-dark-outline btn-probar">Conocer más</button>
+        <button class="btn btn-dark-outline btn-probar" id="btn-conocer-mas">Conocer más</button>
       </div>
 
       <div class="features-cards-row" id="automatizaciones">
         <div class="glass-card">
-          <h4>Despliegue Rápido</h4>
-          <p>Disfruta despliegues relámpago y automatizaciones cristalinas.</p>
+          <h4 class="glass-card-title">Despliegue Rápido</h4>
+          <p class="glass-card-text">
+            Disfruta despliegues relámpago y automatizaciones cristalinas. La cadena Joyart ofrece beneficios premium para fundadores y operadores.
+          </p>
         </div>
         <div class="glass-card">
-          <h4>Flujos Inteligentes</h4>
-          <p>Orquesta flujos que conectan todo tu stack automáticamente.</p>
+          <h4 class="glass-card-title">Flujos Inteligentes</h4>
+          <p class="glass-card-text">
+            Disfruta despliegues relámpago y automatizaciones cristalinas. La cadena Joyart ofrece beneficios premium para fundadores y operadores.
+          </p>
         </div>
         <div class="glass-card">
-          <h4>Operación Mínima</h4>
-          <p>Agentes 24/7 que trabajan por ti sin parar.</p>
+          <h4 class="glass-card-title">Operación Mínima</h4>
+          <p class="glass-card-text">
+            Disfruta despliegues relámpago y automatizaciones cristalinas. La cadena Joyart ofrece beneficios premium para fundadores y operadores.
+          </p>
         </div>
       </div>
     </div>
@@ -184,10 +226,15 @@
 
   <!-- Footer -->
   <footer class="footer" id="agencia">
-    <div class="footer-container">
+    <div class="section-container footer-container">
       <div class="footer-brand">
-        <a href="#" class="nav-logo"><span class="logo-text">joyart</span><span class="logo-badge">AI</span></a>
-        <p class="footer-desc">Redefiniendo la automatización inteligente para empresas con máxima velocidad y estética de alta costura.</p>
+        <a href="#" class="nav-logo">
+          <span class="logo-text">joyart</span>
+          <span class="logo-badge">AI</span>
+        </a>
+        <p class="footer-desc">
+          Redefiniendo la automatización inteligente para empresas con máxima velocidad y estética de alta costura.
+        </p>
       </div>
 
       <div class="footer-nav" id="contacto">
@@ -199,13 +246,21 @@
           <a href="#agencia">Agencia</a>
         </div>
         <div class="footer-col">
+          <h5>Plataforma</h5>
+          <a href="#soluciones">Joyart CRM</a>
+          <a href="#soluciones">AI Agent Builder</a>
+          <a href="#soluciones">Automation Workflows</a>
+        </div>
+        <div class="footer-col">
           <h5>Contacto</h5>
           <a href="mailto:contacto@joyart.ai">contacto@joyart.ai</a>
           <a href="#">Soporte 24/7</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2026 Joyart AI. Todos los derechos reservados.</p></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Joyart AI. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
 <!-- MODAL UNICO JOYART -->
